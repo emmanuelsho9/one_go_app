@@ -1,8 +1,7 @@
 
-
-
 import 'package:flutter/services.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'MVVM/res/Responive/screenResponsive/screenRes.dart';
 import 'MVVM/res/import/import.dart';
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return screenResponisive(
 
-      scaffold: MaterialApp(
+      scaffold: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(

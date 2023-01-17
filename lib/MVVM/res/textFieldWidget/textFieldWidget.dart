@@ -49,6 +49,7 @@ class TextInputField extends StatelessWidget {
           style: const TextStyle(
               color: Colors.black
           ),
+
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.white,

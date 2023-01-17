@@ -4,6 +4,7 @@ import '../../res/Responive/backgroundImageWithScaffold/scaffold.dart';
 import '../../res/Responive/screenResponsive/screenRes.dart';
 import '../../res/btn/btn.dart';
 import '../../res/import/import.dart';
+import 'WelcomeBack.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -23,6 +24,9 @@ class FirstScreen extends StatelessWidget {
                     const SizedBox(height: 70,),
                     BtnUser(
                       text: "Login",
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeBack(),));
+                      },
                     ),
                     const SizedBox(height: 50,),
                     BtnUser(

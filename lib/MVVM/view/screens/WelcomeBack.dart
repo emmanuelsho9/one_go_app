@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:one_go_app/MVVM/view/screens/signUp.dart';
 
 import '../../res/Colors/color.dart';
 import '../../res/Responive/backgroundImageWithScaffold/scaffold.dart';
@@ -8,11 +9,11 @@ import '../../res/btn/btn.dart';
 import '../../res/import/import.dart';
 import '../../res/textFieldWidget/textFieldWidget.dart';
 import 'Enter OTP.dart';
-import 'VehicleInfo.dart';
-import 'WelcomeBack.dart';
+import 'PasswordReset.dart';
+import 'mainScreen/mainScreenForUser.dart';
 
-class SignUp extends StatelessWidget {
-   SignUp({Key? key}) : super(key: key);
+class WelcomeBack extends StatelessWidget {
+   WelcomeBack({Key? key}) : super(key: key);
 
   TextEditingController _FirstName = TextEditingController();
   TextEditingController _LastName = TextEditingController();
@@ -29,73 +30,34 @@ class SignUp extends StatelessWidget {
           body: BackgroundWithScaffold(
             columu: SingleChildScrollView(
               child: Container(
-                height: MediaQuery.of(context).size.height,
-
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
                   children: [
-                    const SizedBox(height: 90,),
-                    Text("Signup", style: TextStyle(
+                    const SizedBox(height: 200,),
+                    Text("Welcome Back!", style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 27,
                       color: textMain,
                     ),),
                     const SizedBox(height: 16,),
-                    Text("Add your details to Signup", style: TextStyle(
+                    Text("Add your details to Login", style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 15,
                       color: SecondMain,
                     ),),
                     const SizedBox(height: 23,),
                     TextInputField(
-                      labelText: 'First Name',
-                      controller: _FirstName,
-                      colorBorderFocus: Color(0xffFFFFFF),
-                      colorBorderInput: Color(0xffFFFFFF),
-                      colorBorder:Color(0xffFFFFFF),
-
-                    ),
-                    SizedBox(height: 26,),
-                    TextInputField(
-                      labelText: 'Last Name',
-                      controller: _LastName,
-                      colorBorderFocus: Color(0xffFFFFFF),
-                      colorBorderInput: Color(0xffFFFFFF),
-                      colorBorder:Color(0xffFFFFFF),
-
-                    ),
-                    SizedBox(height: 26,),
-                    TextInputField(
-                      labelText: 'Phone Number',
-                      keyboardType: TextInputType.number,
+                      labelText: 'Email/Phone',
+                      keyboardType: TextInputType.emailAddress,
                       controller: _PhoneNumber,
                       colorBorderFocus: Color(0xffFFFFFF),
                       colorBorderInput: Color(0xffFFFFFF),
                       colorBorder:Color(0xffFFFFFF),
 
                     ),
-                    SizedBox(height: 26,),
-                    TextInputField(
-                      labelText: 'Email Address',
-                      controller: _EmailAddress,
-                      keyboardType: TextInputType.emailAddress,
-                      colorBorderFocus: Color(0xffFFFFFF),
-                      colorBorderInput: Color(0xffFFFFFF),
-                      colorBorder:Color(0xffFFFFFF),
-
-                    ),
-                    SizedBox(height: 26,),
+                    const SizedBox(height: 23,),
                     TextInputField(
                       labelText: 'Password',
-                      obscured: true,
-                      controller: _Password,
-                      colorBorderFocus: Color(0xffFFFFFF),
-                      colorBorderInput: Color(0xffFFFFFF),
-                      colorBorder:Color(0xffFFFFFF),
-
-                    ),
-                    SizedBox(height: 26,),
-                    TextInputField(
-                      labelText: 'Confirm Password',
                       controller: ConfirmPassword,
                       obscured: true,
                       colorBorderFocus: const Color(0xffFFFFFF),
@@ -103,42 +65,56 @@ class SignUp extends StatelessWidget {
                       colorBorder:const Color(0xffFFFFFF),
 
                     ),
-                  const SizedBox(height: 26,),
+                    const SizedBox(height: 23,),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(PasswordReset());
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                TextinAll(
+                      text: "Forgot your password?",
+                      color: Colors.black,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                    ),
+                              ],
+                            ),
+                          ),
+                        ),
+                    const SizedBox(height: 23,),
                     BtnUser(
-                      text: "Continue",
+                      text: "Login",
                       onTap: () {
-                        Get.to(VehicleInfo());
+                      Get.to(mainScreenForUser());
                       },
                     ),
                     const SizedBox(height: 26,),
                     InkWell(
                       onTap: () {
-                        Get.to(WelcomeBack());
+                        Get.to(SignUp());
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          InkWell(
-                            onTap: () {
-                              Get.to(WelcomeBack());
-
-                            },
-                            child: TextinAll(
-                              text: "Already have an Account?    ",
-                              color: Colors.black,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                            ),
+                          TextinAll(
+                            text: "Don’t have an Account?    ",
+                            color: Colors.black,
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
                           ),
                           TextinAll(
-                            text: "Login",
+                            text: "SignUp",
                             color:  Color(0xFF034888),
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
